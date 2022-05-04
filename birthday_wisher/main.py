@@ -4,8 +4,8 @@ import datetime as dt
 import pandas
 
 TEMPLATES = ["letter_1.txt", "letter_2.txt", "letter_3.txt"]
-my_email = ""
-password = ""
+my_email = ""     # add your email here
+password = ""     # add password
 
 data = pandas.read_csv("birthdays.csv")
 dict_data = data.to_dict(orient="records")
