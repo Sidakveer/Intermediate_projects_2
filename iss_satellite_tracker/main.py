@@ -1,5 +1,5 @@
 import smtplib
-
+import time
 import requests
 from datetime import datetime
 
@@ -40,15 +40,11 @@ print(sunrise)
 username = ""
 password = ""
 
-if position_check() and sunset < time_now.hour < sunrise:
-    with smtplib.SMTP("smtp.gmail.com", port=578) as connection:
-        connection.starttls()
-        connection.login(user=username, password=password)
-        connection.sendmail(from_addr=username, to_addrs="me@gmail.com", msg="Subject:Look up\n\n<Body>")
-
-
-
-
-
-
+while True:
+    time.sleep(60)
+    if position_check() and sunset < time_now.hour < sunrise:
+        with smtplib.SMTP("smtp.gmail.com", port=578) as connection:
+            connection.starttls()
+            connection.login(user=username, password=password)
+            connection.sendmail(from_addr=username, to_addrs="me@gmail.com", msg="Subject:Look up\n\n<Body>")
 
