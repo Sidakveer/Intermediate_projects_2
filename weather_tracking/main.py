@@ -25,3 +25,4 @@ for x in hours:
 
 if will_rain:
     print("Bring an umbrella")
+    
