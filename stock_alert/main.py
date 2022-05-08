@@ -26,3 +26,18 @@ diff = float(stock_price_yesterday) - float(stock_price_dayeforeYes)
 if diff < 0:
     diff = diff * -1
 percent_change = (diff * 100 )/ float(stock_price_yesterday)
+
+if percent_change >= .80:
+
+    params_news = {
+        "q": STOCK,
+        "apiKey": "7982e58679ab4f9493310540a67ee220"
+
+    }
+
+    news_response = requests.get(url="https://newsapi.org/v2/everything", params=params_news)
+    news_response.raise_for_status()
+    news_data = news_response.json()["articles"]
+    news_1= news_data[0]["title"]
+    news_2= news_data[0]["title"]
+    news_3= news_data[0]["title"]
