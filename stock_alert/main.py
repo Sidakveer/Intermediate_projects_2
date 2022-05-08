@@ -10,11 +10,10 @@ COMPANY_NAME = "Tesla Inc"
 params_stocks = {
     "function": "TIME_SERIES_DAILY",
     "symbol": STOCK,
-    "apikey": "E1KQTB56ZWFXCSUL"
+    "apikey": "" #use your personal API key
 }
 
 
-# stock_api = "E1KQTB56ZWFXCSUL"
 stock_response = requests.get(url="https://www.alphavantage.co/query", params=params_stocks)
 stock_data_daily = stock_response.json()["Time Series (Daily)"]
 date_string1 = f"{dt.datetime.today().year}-0{dt.datetime.today().month}-0{dt.datetime.today().day - 2}"
@@ -41,7 +40,7 @@ if percent_change >= .80:
 
     params_news = {
         "q": STOCK,
-        "apiKey": "7982e58679ab4f9493310540a67ee220"
+        "apiKey": "" #use your personal API key
 
     }
 
