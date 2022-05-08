@@ -23,11 +23,21 @@ stock_price_yesterday = stock_data_daily[date_string1]["4. close"]
 stock_price_dayeforeYes = stock_data_daily[date_string2]["4. close"]
 
 diff = float(stock_price_yesterday) - float(stock_price_dayeforeYes)
+
 if diff < 0:
+    down = True
     diff = diff * -1
+else:
+    down = False
+
 percent_change = (diff * 100 )/ float(stock_price_yesterday)
 
 if percent_change >= .80:
+
+    if down:
+        print(STOCK, "5% Down")
+    else:
+        print(STOCK, "5% Up")
 
     params_news = {
         "q": STOCK,
@@ -39,5 +49,8 @@ if percent_change >= .80:
     news_response.raise_for_status()
     news_data = news_response.json()["articles"]
     news_1= news_data[0]["title"]
-    news_2= news_data[0]["title"]
-    news_3= news_data[0]["title"]
+    news_2= news_data[1]["title"]
+    news_3= news_data[2]["title"]
+    print(news_1)
+    print(news_2)
+    print(news_3)
