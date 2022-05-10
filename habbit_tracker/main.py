@@ -1,3 +1,5 @@
+import datetime
+
 import requests
 
 
@@ -34,3 +36,13 @@ headers = {
 response1 = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 print(response1.text)
 
+pixel_end = f"{pixela_endpoint}/{USERNAME}/graphs/graph12"
+
+pixel_params = {
+    "date": "20220510",
+    "quantity": "3"
+}
+
+
+response3 = requests.post(url=pixel_end, json=pixel_params, headers=headers)
+print(response3.text)
