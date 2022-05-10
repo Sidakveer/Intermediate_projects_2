@@ -1,10 +1,9 @@
 import datetime
-
 import requests
 
 
-USERNAME = "sidak"
-TOKEN = "dfsfdsfds"
+USERNAME = "sidak" #your username
+TOKEN = "dfsfdsfds" #your token
 
 pixela_endpoint = "https://pixe.la/v1/users"
 
@@ -38,8 +37,10 @@ print(response1.text)
 
 pixel_end = f"{pixela_endpoint}/{USERNAME}/graphs/graph12"
 
+today = datetime.datetime.now()
+
 pixel_params = {
-    "date": "20220510",
+    "date": today.strftime("%Y%m%d"),
     "quantity": "3"
 }
 
