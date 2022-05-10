@@ -2,8 +2,8 @@ import datetime
 import requests
 
 
-USERNAME = "sidak" #your username
-TOKEN = "dfsfdsfds" #your token
+USERNAME = "" #your username
+TOKEN = "" #your token
 
 pixela_endpoint = "https://pixe.la/v1/users"
 
