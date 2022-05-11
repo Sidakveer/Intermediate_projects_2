@@ -29,6 +29,7 @@ json_params = {
 response = requests.post(url=exercise_endpoint, json=json_params, headers=headers)
 result = response.json()
 x = (result["exercises"][0])
+
 dateToday = datetime.datetime.now().strftime(f"%d/%m/%Y")
 time_now = datetime.datetime.now().strftime("%X")
 
@@ -44,5 +45,9 @@ sheety_params = {
     }
 }
 
-sheety_response = requests.post(url="https://api.sheety.co/63fb69ef04fd0000558b3b99957a8d83/workouts/workouts", json=sheety_params)
+headers = {
+    "Authorization": "Bearer salla"
+}
+
+sheety_response = requests.post(url="https://api.sheety.co/63fb69ef04fd0000558b3b99957a8d83/workouts/workouts", json=sheety_params, headers=headers)
 print(sheety_response.json())
