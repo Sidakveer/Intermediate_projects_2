@@ -11,7 +11,7 @@ AGE = "22"
 
 exercise_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
 
-user_input = input("Enter what exercise you did")
+user_input = input("Enter what exercise you did? ")
 
 headers = {
     "x-app-id": APP_ID,
@@ -28,3 +28,21 @@ json_params = {
 
 response = requests.post(url=exercise_endpoint, json=json_params, headers=headers)
 result = response.json()
+x = (result["exercises"][0])
+dateToday = datetime.datetime.now().strftime(f"%d/%m/%Y")
+time_now = datetime.datetime.now().strftime("%X")
+
+sheety_params = {
+    "workout": {
+
+        "date": dateToday,
+        "time": time_now,
+        "exercise": x["name"],
+        "duration": x["duration_min"],
+        "calories": x["nf_calories"],
+
+    }
+}
+
+sheety_response = requests.post(url="https://api.sheety.co/63fb69ef04fd0000558b3b99957a8d83/workouts/workouts", json=sheety_params)
+print(sheety_response.json())
