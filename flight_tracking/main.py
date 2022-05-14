@@ -13,7 +13,8 @@ print(sheet_data[0])
 for x in range(len(sheet_data)):
     if sheet_data[x]["iataCode"] == "":
         flight_search1 = FlightSearch()
-        sheet_data[x]["iataCode"] = flight_search1.get_destination_code()
+        city_name = sheet_data[x]["city"]
+        sheet_data[x]["iataCode"] = flight_search1.get_destination_code(city_name)
 
     data_manager1.destination_data = sheet_data
     data_manager1.update_destination_codes()
