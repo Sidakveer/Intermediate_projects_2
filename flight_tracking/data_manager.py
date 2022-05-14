@@ -24,5 +24,5 @@ class DataManager:
             }
             }
             response = requests.put(url=f"{SHEETY_ENDPOINT}/{x['id']}", json=params)
-            
-            print(response.text)
+
+            # print(response.text)
