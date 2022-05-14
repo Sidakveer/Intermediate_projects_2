@@ -12,7 +12,7 @@ data_manager1 = DataManager()
 sheet_data = data_manager1.get_destination_data()
 flight_search1 = FlightSearch()
 
-ORIGIN_CITY_IATA = "YUL"
+ORIGIN_CITY_IATA = "JFK"
 
 for x in range(len(sheet_data)):
     if sheet_data[x]["iataCode"] == "":
